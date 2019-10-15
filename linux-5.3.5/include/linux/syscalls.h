@@ -1001,8 +1001,6 @@ asmlinkage long sys_pidfd_send_signal(int pidfd, int sig,
 				       siginfo_t __user *info,
 				       unsigned int flags);
 
-// jesnk
-asmlinkage long sys_mycall(void);
 
 /*
  * Architecture-specific system calls
@@ -1224,6 +1222,10 @@ asmlinkage long sys_old_mmap(struct mmap_arg_struct __user *arg);
  * not implemented -- see kernel/sys_ni.c
  */
 asmlinkage long sys_ni_syscall(void);
+
+// jesnk
+asmlinkage long sys_mycall(void);
+
 
 #endif /* CONFIG_ARCH_HAS_SYSCALL_WRAPPER */
 
