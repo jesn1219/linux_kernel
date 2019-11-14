@@ -1,0 +1,3 @@
+/ker/linux_kernel/jesn_modules/jesnm3/jesnm3_3/jesnm3_3.ko
+/ker/linux_kernel/jesn_modules/jesnm3/jesnm3_3/jesnm3_3.o
+

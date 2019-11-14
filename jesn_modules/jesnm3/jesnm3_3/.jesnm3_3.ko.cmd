@@ -1,0 +1,1 @@
+cmd_/ker/linux_kernel/jesn_modules/jesnm3/jesnm3_3/jesnm3_3.ko := ld -r -m elf_x86_64  -z max-page-size=0x200000 -T ./scripts/module-common.lds  --build-id  -o /ker/linux_kernel/jesn_modules/jesnm3/jesnm3_3/jesnm3_3.ko /ker/linux_kernel/jesn_modules/jesnm3/jesnm3_3/jesnm3_3.o /ker/linux_kernel/jesn_modules/jesnm3/jesnm3_3/jesnm3_3.mod.o ;  true
