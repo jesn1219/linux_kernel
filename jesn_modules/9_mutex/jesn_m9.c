@@ -81,7 +81,7 @@ void protect_off(void) {
 
 int insert_thread(void* _arg) {
 	int* arg = (int*)_arg;
-
+    int exit = 0;
 	while (true) {
 		protect_on();
 		if (global_index < GLOBAL_INDEX_MAX) {	
@@ -89,11 +89,13 @@ int insert_thread(void* _arg) {
 			new->value = global_index;
 			list_add(&new->entry, &sample_list[0]);
 		} else {
-			protect_off();
-			break;
+            exit = 1;
 		}
 		__sync_fetch_and_add(&global_index,1);
 		protect_off();
+        if (exit == 1) {
+            break;
+        }
 	}
 
 	return 0;
@@ -101,17 +103,20 @@ int insert_thread(void* _arg) {
 
 int search_thread(void* _arg) {
 	struct sample_node *current_node = NULL;
+    int exit = 0;
 	while(true) {
 		protect_on();
 		if (global_index < GLOBAL_INDEX_MAX) {
 			list_for_each_entry(current_node,&sample_list[0],entry) {
 			}
 		} else {
-			protect_off();
-			break;
+            exit = 1;
 		}
 		__sync_fetch_and_add(&global_index,1);
 		protect_off();
+        if (exit == 1) {
+            break;
+        }
 	}
 }	
 
@@ -119,6 +124,7 @@ int search_thread(void* _arg) {
 int delete_thread(void* _arg) {
 	struct sample_node *current_node = NULL;
 	struct sample_node *tmp_node = NULL;
+    int exit = 0;
 	while(true) {
 		protect_on();
 	 	if (global_index < GLOBAL_INDEX_MAX) {
@@ -127,72 +133,16 @@ int delete_thread(void* _arg) {
 				kfree(current_node);
 			}
 		} else {
-			protect_off();
-			break;
+            exit = 1;
 		}
 		__sync_fetch_and_add(&global_index,1);
 		protect_off();
+        if (exit == 1) {
+            break;
+        }
 	}	
 }
 
-
-
-
-int insert_spinlock_thread(void* _arg) {
-	int* arg = (int*)_arg;
-
-	while (true) {
-        spin_lock(&global_spinlock);
-		if (global_index < GLOBAL_INDEX_MAX) {	
-			struct sample_node *new = kmalloc(sizeof(struct sample_node),GFP_KERNEL);
-			new->value = global_index;
-			list_add(&new->entry, &sample_list[0]);
-		} else {
-            spin_unlock(&global_spinlock);
-			break;
-		}
-		__sync_fetch_and_add(&global_index,1);
-        spin_unlock(&global_spinlock);
-	}
-
-	return 0;
-}
-
-int search_spinlock_thread(void* _arg) {
-	struct sample_node *current_node = NULL;
-	while(true) {
-        spin_lock(&global_spinlock);
-		if (global_index < GLOBAL_INDEX_MAX) {
-			list_for_each_entry(current_node,&sample_list[0],entry) {
-			}
-		} else {
-            spin_unlock(&global_spinlock);
-			break;
-		}
-		__sync_fetch_and_add(&global_index,1);
-        spin_unlock(&global_spinlock);
-	}
-}	
-
-
-int delete_spinlock_thread(void* _arg) {
-	struct sample_node *current_node = NULL;
-	struct sample_node *tmp_node = NULL;
-	while(true) {
-        spin_lock(&global_spinlock);
-	 	if (global_index < GLOBAL_INDEX_MAX) {
-			list_for_each_entry_safe(current_node, tmp_node, &sample_list[0],entry) {
-				list_del(&current_node->entry);
-				kfree(current_node);
-			}
-		} else {
-            spin_unlock(&global_spinlock);
-			break;
-		}
-		__sync_fetch_and_add(&global_index,1);
-        spin_unlock(&global_spinlock);
-	}	
-}
 
 
 
@@ -285,13 +235,13 @@ void test_program(void) {
 	INIT_LIST_HEAD(&sample_list[1]);
 	INIT_LIST_HEAD(&sample_list[2]);
 	GLOBAL_PROTECT_METHOD = 1;
-	//create_and_test_thread();
+	create_and_test_thread();
 
 	GLOBAL_PROTECT_METHOD = 2;
 	create_and_test_spinlock_thread();
 
 	GLOBAL_PROTECT_METHOD = 3;
-	//create_and_test_thread();
+	create_and_test_thread();
 }
 
 
@@ -301,10 +251,6 @@ int __init jesnm9_module_init(void) {
 	test_program();
 	return 0;
 }
-
-
-
-
 
 
 void __exit jesnm9_module_cleanup(void) {
