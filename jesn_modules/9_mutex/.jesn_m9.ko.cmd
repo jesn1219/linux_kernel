@@ -1,0 +1,1 @@
+cmd_/ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.ko := ld -r -m elf_x86_64  -z max-page-size=0x200000 -T ./scripts/module-common.lds  --build-id  -o /ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.ko /ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.o /ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.mod.o ;  true
