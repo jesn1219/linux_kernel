@@ -1,8 +1,8 @@
-cmd_/ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.mod.o := gcc -Wp,-MD,/ker/linux_kernel/jesn_modules/9_mutex/.jesn_m9.mod.o.d  -nostdinc -isystem /usr/lib/gcc/x86_64-linux-gnu/7/include -I./arch/x86/include -I./arch/x86/include/generated  -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/kconfig.h -include ./include/linux/compiler_types.h -D__KERNEL__ -Wall -Wundef -Werror=strict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -fshort-wchar -fno-PIE -Werror=implicit-function-declaration -Werror=implicit-int -Wno-format-security -std=gnu89 -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -m64 -falign-jumps=1 -falign-loops=1 -mno-80387 -mno-fp-ret-in-387 -mpreferred-stack-boundary=3 -mskip-rax-setup -mtune=generic -mno-red-zone -mcmodel=kernel -DCONFIG_X86_X32_ABI -DCONFIG_AS_CFI=1 -DCONFIG_AS_CFI_SIGNAL_FRAME=1 -DCONFIG_AS_CFI_SECTIONS=1 -DCONFIG_AS_SSSE3=1 -DCONFIG_AS_AVX=1 -DCONFIG_AS_AVX2=1 -DCONFIG_AS_AVX512=1 -DCONFIG_AS_SHA1_NI=1 -DCONFIG_AS_SHA256_NI=1 -Wno-sign-compare -fno-asynchronous-unwind-tables -mindirect-branch=thunk-extern -mindirect-branch-register -fno-jump-tables -fno-delete-null-pointer-checks -Wno-frame-address -Wno-format-truncation -Wno-format-overflow -Wno-int-in-bool-context -O2 --param=allow-store-data-races=0 -Wframe-larger-than=1024 -fstack-protector-strong -Wno-unused-but-set-variable -Wno-unused-const-variable -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-var-tracking-assignments -g -gdwarf-4 -pg -mrecord-mcount -mfentry -DCC_USING_FENTRY -Wdeclaration-after-statement -Wvla -Wno-pointer-sign -fno-strict-overflow -fno-merge-all-constants -fmerge-constants -fno-stack-check -fconserve-stack -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init  -DKBUILD_BASENAME='"jesn_m9.mod"' -DKBUILD_MODNAME='"jesn_m9"' -DMODULE  -c -o /ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.mod.o /ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.mod.c
+cmd_/home/jesn/Desktop/linux_kernel/jesn_modules/9_mutex/jesn_m9.mod.o := gcc -Wp,-MD,/home/jesn/Desktop/linux_kernel/jesn_modules/9_mutex/.jesn_m9.mod.o.d  -nostdinc -isystem /usr/lib/gcc/x86_64-linux-gnu/7/include  -I./arch/x86/include -I./arch/x86/include/generated  -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/kconfig.h -Iubuntu/include  -include ./include/linux/compiler_types.h -D__KERNEL__ -Wall -Wundef -Werror=strict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -fshort-wchar -fno-PIE -Werror-implicit-function-declaration -Werror=implicit-int -Wno-format-security -std=gnu89 -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -m64 -falign-jumps=1 -falign-loops=1 -mno-80387 -mno-fp-ret-in-387 -mpreferred-stack-boundary=3 -mskip-rax-setup -mtune=generic -mno-red-zone -mcmodel=kernel -DCONFIG_X86_X32_ABI -DCONFIG_AS_CFI=1 -DCONFIG_AS_CFI_SIGNAL_FRAME=1 -DCONFIG_AS_CFI_SECTIONS=1 -DCONFIG_AS_FXSAVEQ=1 -DCONFIG_AS_SSSE3=1 -DCONFIG_AS_AVX=1 -DCONFIG_AS_AVX2=1 -DCONFIG_AS_AVX512=1 -DCONFIG_AS_SHA1_NI=1 -DCONFIG_AS_SHA256_NI=1 -Wno-sign-compare -fno-asynchronous-unwind-tables -mindirect-branch=thunk-extern -mindirect-branch-register -fno-jump-tables -fno-delete-null-pointer-checks -Wno-frame-address -Wno-format-truncation -Wno-format-overflow -Wno-int-in-bool-context -O2 --param=allow-store-data-races=0 -Wframe-larger-than=1024 -fstack-protector-strong -Wno-unused-but-set-variable -Wno-unused-const-variable -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-var-tracking-assignments -pg -mrecord-mcount -mfentry -DCC_USING_FENTRY -Wdeclaration-after-statement -Wvla -Wno-pointer-sign -fno-strict-overflow -fno-merge-all-constants -fmerge-constants -fno-stack-check -fconserve-stack -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init  -DKBUILD_BASENAME='"jesn_m9.mod"' -DKBUILD_MODNAME='"jesn_m9"' -DMODULE  -c -o /home/jesn/Desktop/linux_kernel/jesn_modules/9_mutex/jesn_m9.mod.o /home/jesn/Desktop/linux_kernel/jesn_modules/9_mutex/jesn_m9.mod.c
 
-source_/ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.mod.o := /ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.mod.c
+source_/home/jesn/Desktop/linux_kernel/jesn_modules/9_mutex/jesn_m9.mod.o := /home/jesn/Desktop/linux_kernel/jesn_modules/9_mutex/jesn_m9.mod.c
 
-deps_/ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.mod.o := \
+deps_/home/jesn/Desktop/linux_kernel/jesn_modules/9_mutex/jesn_m9.mod.o := \
     $(wildcard include/config/module/unload.h) \
     $(wildcard include/config/retpoline.h) \
   include/linux/kconfig.h \
@@ -82,12 +82,12 @@ deps_/ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.mod.o := \
     $(wildcard include/config/mmu.h) \
     $(wildcard include/config/prove/locking.h) \
     $(wildcard include/config/arch/has/refcount.h) \
+    $(wildcard include/config/lock/down/kernel.h) \
+    $(wildcard include/config/lock/down/mandatory.h) \
     $(wildcard include/config/panic/timeout.h) \
     $(wildcard include/config/tracing.h) \
     $(wildcard include/config/ftrace/mcount/record.h) \
   /usr/lib/gcc/x86_64-linux-gnu/7/include/stdarg.h \
-  include/linux/limits.h \
-  include/uapi/linux/limits.h \
   include/linux/linkage.h \
   include/linux/export.h \
     $(wildcard include/config/modules.h) \
@@ -145,6 +145,7 @@ deps_/ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.mod.o := \
     $(wildcard include/config/early/printk.h) \
     $(wildcard include/config/printk/nmi.h) \
     $(wildcard include/config/printk.h) \
+    $(wildcard include/config/kmsg/ids.h) \
     $(wildcard include/config/dynamic/debug.h) \
   include/linux/init.h \
     $(wildcard include/config/strict/kernel/rwx.h) \
@@ -164,14 +165,14 @@ deps_/ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.mod.o := \
     $(wildcard include/config/have/arch/jump/label/relative.h) \
   arch/x86/include/asm/jump_label.h \
   include/linux/build_bug.h \
-  arch/x86/include/asm/div64.h \
-  include/asm-generic/div64.h \
   include/linux/restart_block.h \
   include/linux/time64.h \
+    $(wildcard include/config/64bit/time.h) \
   include/linux/math64.h \
     $(wildcard include/config/arch/supports/int128.h) \
+  arch/x86/include/asm/div64.h \
+  include/asm-generic/div64.h \
   include/uapi/linux/time.h \
-  include/uapi/linux/time_types.h \
   arch/x86/include/asm/current.h \
   arch/x86/include/asm/percpu.h \
     $(wildcard include/config/x86/64/smp.h) \
@@ -215,6 +216,7 @@ deps_/ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.mod.o := \
     $(wildcard include/config/x86.h) \
   include/uapi/video/edid.h \
   arch/x86/include/asm/page_64_types.h \
+    $(wildcard include/config/kasan/extra.h) \
     $(wildcard include/config/dynamic/memory/layout.h) \
     $(wildcard include/config/randomize/base.h) \
   arch/x86/include/asm/kaslr.h \
@@ -299,7 +301,6 @@ deps_/ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.mod.o := \
   include/asm-generic/atomic-instrumented.h \
   include/linux/tracepoint-defs.h \
   include/linux/atomic.h \
-  include/linux/atomic-fallback.h \
     $(wildcard include/config/generic/atomic64.h) \
   include/asm-generic/atomic-long.h \
   arch/x86/include/asm/paravirt.h \
@@ -451,6 +452,7 @@ deps_/ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.mod.o := \
     $(wildcard include/config/arch/uses/gettimeoffset.h) \
   include/linux/seqlock.h \
   include/linux/time32.h \
+  include/linux/jiffies.h \
   include/linux/timex.h \
   include/uapi/linux/timex.h \
   include/uapi/linux/param.h \
@@ -461,7 +463,6 @@ deps_/ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.mod.o := \
   arch/x86/include/asm/timex.h \
   arch/x86/include/asm/tsc.h \
     $(wildcard include/config/x86/tsc.h) \
-  include/linux/jiffies.h \
   include/generated/timeconst.h \
   include/linux/timekeeping.h \
   include/linux/timekeeping32.h \
@@ -669,6 +670,6 @@ deps_/ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.mod.o := \
   include/linux/vermagic.h \
   include/generated/utsrelease.h \
 
-/ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.mod.o: $(deps_/ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.mod.o)
+/home/jesn/Desktop/linux_kernel/jesn_modules/9_mutex/jesn_m9.mod.o: $(deps_/home/jesn/Desktop/linux_kernel/jesn_modules/9_mutex/jesn_m9.mod.o)
 
-$(deps_/ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.mod.o):
+$(deps_/home/jesn/Desktop/linux_kernel/jesn_modules/9_mutex/jesn_m9.mod.o):

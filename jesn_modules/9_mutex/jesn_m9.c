@@ -1,5 +1,5 @@
-#include <linux/kernel.h>
 #include <linux/module.h>
+#include <linux/kernel.h>
 #include <linux/init.h>
 #include <linux/kthread.h>
 
@@ -138,6 +138,65 @@ int delete_thread(void* _arg) {
 
 
 
+int insert_spinlock_thread(void* _arg) {
+	int* arg = (int*)_arg;
+
+	while (true) {
+        spin_lock(&global_spinlock);
+		if (global_index < GLOBAL_INDEX_MAX) {	
+			struct sample_node *new = kmalloc(sizeof(struct sample_node),GFP_KERNEL);
+			new->value = global_index;
+			list_add(&new->entry, &sample_list[0]);
+		} else {
+            spin_unlock(&global_spinlock);
+			break;
+		}
+		__sync_fetch_and_add(&global_index,1);
+        spin_unlock(&global_spinlock);
+	}
+
+	return 0;
+}
+
+int search_spinlock_thread(void* _arg) {
+	struct sample_node *current_node = NULL;
+	while(true) {
+        spin_lock(&global_spinlock);
+		if (global_index < GLOBAL_INDEX_MAX) {
+			list_for_each_entry(current_node,&sample_list[0],entry) {
+			}
+		} else {
+            spin_unlock(&global_spinlock);
+			break;
+		}
+		__sync_fetch_and_add(&global_index,1);
+        spin_unlock(&global_spinlock);
+	}
+}	
+
+
+int delete_spinlock_thread(void* _arg) {
+	struct sample_node *current_node = NULL;
+	struct sample_node *tmp_node = NULL;
+	while(true) {
+        spin_lock(&global_spinlock);
+	 	if (global_index < GLOBAL_INDEX_MAX) {
+			list_for_each_entry_safe(current_node, tmp_node, &sample_list[0],entry) {
+				list_del(&current_node->entry);
+				kfree(current_node);
+			}
+		} else {
+            spin_unlock(&global_spinlock);
+			break;
+		}
+		__sync_fetch_and_add(&global_index,1);
+        spin_unlock(&global_spinlock);
+	}	
+}
+
+
+
+
 
 void create_and_test_thread(void) {
 	int i;
@@ -178,6 +237,44 @@ void create_and_test_thread(void) {
 }
 
 
+void create_and_test_spinlock_thread(void) {
+	int i;
+	unsigned long long insert_time;
+	unsigned long long search_time;
+	unsigned long long delete_time;
+	struct timespec tmp_time[2];
+	getrawmonotonic(&tmp_time[0]);
+	global_index = 0;
+	for ( i = 0; i < NUMJOBS; i++) {
+		kthread_run(&insert_spinlock_thread,&i,"insert_thread");
+	}
+	getrawmonotonic(&tmp_time[1]);
+	insert_time = cal_clock(tmp_time);
+
+	getrawmonotonic(&tmp_time[0]);
+	global_index = 0;
+	for ( i = 0; i < NUMJOBS; i++) {
+		kthread_run(&search_spinlock_thread,&i,"serach_thread");
+	}
+	getrawmonotonic(&tmp_time[1]);
+	search_time = cal_clock(tmp_time);
+	
+	getrawmonotonic(&tmp_time[0]);
+	global_index = 0;
+	for ( i = 0; i < NUMJOBS; i++) {
+		kthread_run(&delete_spinlock_thread,&i,"delete_thread");
+	}
+	getrawmonotonic(&tmp_time[1]);
+	delete_time = cal_clock(tmp_time);
+	
+	
+	printk("%s linked list insert_time : %llu ns\n", GLOBAL_PROTECT_METHOD == 1 ? "mutex" : GLOBAL_PROTECT_METHOD == 2 ? "spin_lock" : "RW semaphore", insert_time); 
+
+	printk("%s linked list serach_time : %llu ns\n", GLOBAL_PROTECT_METHOD == 1 ? "mutex" : GLOBAL_PROTECT_METHOD == 2 ? "spin_lock" : "RW semaphore", search_time); 
+
+	printk("%s linked list delete_time : %llu ns\n", GLOBAL_PROTECT_METHOD == 1 ? "mutex" : GLOBAL_PROTECT_METHOD == 2 ? "spin_lock" : "RW semaphore", delete_time); 
+}
+
 
 void test_program(void) {
 	spin_lock_init(&global_spinlock);
@@ -188,13 +285,13 @@ void test_program(void) {
 	INIT_LIST_HEAD(&sample_list[1]);
 	INIT_LIST_HEAD(&sample_list[2]);
 	GLOBAL_PROTECT_METHOD = 1;
-	create_and_test_thread();
+	//create_and_test_thread();
 
 	GLOBAL_PROTECT_METHOD = 2;
-	create_and_test_thread();
+	create_and_test_spinlock_thread();
 
 	GLOBAL_PROTECT_METHOD = 3;
-	create_and_test_thread();
+	//create_and_test_thread();
 }
 
 

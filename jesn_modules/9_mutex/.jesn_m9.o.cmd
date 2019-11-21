@@ -1,8 +1,8 @@
-cmd_/ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.o := gcc -Wp,-MD,/ker/linux_kernel/jesn_modules/9_mutex/.jesn_m9.o.d  -nostdinc -isystem /usr/lib/gcc/x86_64-linux-gnu/7/include -I./arch/x86/include -I./arch/x86/include/generated  -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/kconfig.h -include ./include/linux/compiler_types.h -D__KERNEL__ -Wall -Wundef -Werror=strict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -fshort-wchar -fno-PIE -Werror=implicit-function-declaration -Werror=implicit-int -Wno-format-security -std=gnu89 -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -m64 -falign-jumps=1 -falign-loops=1 -mno-80387 -mno-fp-ret-in-387 -mpreferred-stack-boundary=3 -mskip-rax-setup -mtune=generic -mno-red-zone -mcmodel=kernel -DCONFIG_X86_X32_ABI -DCONFIG_AS_CFI=1 -DCONFIG_AS_CFI_SIGNAL_FRAME=1 -DCONFIG_AS_CFI_SECTIONS=1 -DCONFIG_AS_SSSE3=1 -DCONFIG_AS_AVX=1 -DCONFIG_AS_AVX2=1 -DCONFIG_AS_AVX512=1 -DCONFIG_AS_SHA1_NI=1 -DCONFIG_AS_SHA256_NI=1 -Wno-sign-compare -fno-asynchronous-unwind-tables -mindirect-branch=thunk-extern -mindirect-branch-register -fno-jump-tables -fno-delete-null-pointer-checks -Wno-frame-address -Wno-format-truncation -Wno-format-overflow -Wno-int-in-bool-context -O2 --param=allow-store-data-races=0 -Wframe-larger-than=1024 -fstack-protector-strong -Wno-unused-but-set-variable -Wno-unused-const-variable -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-var-tracking-assignments -g -gdwarf-4 -pg -mrecord-mcount -mfentry -DCC_USING_FENTRY -Wdeclaration-after-statement -Wvla -Wno-pointer-sign -fno-strict-overflow -fno-merge-all-constants -fmerge-constants -fno-stack-check -fconserve-stack -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init  -DMODULE  -DKBUILD_BASENAME='"jesn_m9"' -DKBUILD_MODNAME='"jesn_m9"' -c -o /ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.o /ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.c
+cmd_/home/jesn/Desktop/linux_kernel/jesn_modules/9_mutex/jesn_m9.o := gcc -Wp,-MD,/home/jesn/Desktop/linux_kernel/jesn_modules/9_mutex/.jesn_m9.o.d  -nostdinc -isystem /usr/lib/gcc/x86_64-linux-gnu/7/include  -I./arch/x86/include -I./arch/x86/include/generated  -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/kconfig.h -Iubuntu/include  -include ./include/linux/compiler_types.h -D__KERNEL__ -Wall -Wundef -Werror=strict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -fshort-wchar -fno-PIE -Werror-implicit-function-declaration -Werror=implicit-int -Wno-format-security -std=gnu89 -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -m64 -falign-jumps=1 -falign-loops=1 -mno-80387 -mno-fp-ret-in-387 -mpreferred-stack-boundary=3 -mskip-rax-setup -mtune=generic -mno-red-zone -mcmodel=kernel -DCONFIG_X86_X32_ABI -DCONFIG_AS_CFI=1 -DCONFIG_AS_CFI_SIGNAL_FRAME=1 -DCONFIG_AS_CFI_SECTIONS=1 -DCONFIG_AS_FXSAVEQ=1 -DCONFIG_AS_SSSE3=1 -DCONFIG_AS_AVX=1 -DCONFIG_AS_AVX2=1 -DCONFIG_AS_AVX512=1 -DCONFIG_AS_SHA1_NI=1 -DCONFIG_AS_SHA256_NI=1 -Wno-sign-compare -fno-asynchronous-unwind-tables -mindirect-branch=thunk-extern -mindirect-branch-register -fno-jump-tables -fno-delete-null-pointer-checks -Wno-frame-address -Wno-format-truncation -Wno-format-overflow -Wno-int-in-bool-context -O2 --param=allow-store-data-races=0 -Wframe-larger-than=1024 -fstack-protector-strong -Wno-unused-but-set-variable -Wno-unused-const-variable -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-var-tracking-assignments -pg -mrecord-mcount -mfentry -DCC_USING_FENTRY -Wdeclaration-after-statement -Wvla -Wno-pointer-sign -fno-strict-overflow -fno-merge-all-constants -fmerge-constants -fno-stack-check -fconserve-stack -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init  -DMODULE  -DKBUILD_BASENAME='"jesn_m9"' -DKBUILD_MODNAME='"jesn_m9"' -c -o /home/jesn/Desktop/linux_kernel/jesn_modules/9_mutex/jesn_m9.o /home/jesn/Desktop/linux_kernel/jesn_modules/9_mutex/jesn_m9.c
 
-source_/ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.o := /ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.c
+source_/home/jesn/Desktop/linux_kernel/jesn_modules/9_mutex/jesn_m9.o := /home/jesn/Desktop/linux_kernel/jesn_modules/9_mutex/jesn_m9.c
 
-deps_/ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.o := \
+deps_/home/jesn/Desktop/linux_kernel/jesn_modules/9_mutex/jesn_m9.o := \
   include/linux/kconfig.h \
     $(wildcard include/config/cpu/big/endian.h) \
     $(wildcard include/config/booger.h) \
@@ -16,22 +16,32 @@ deps_/ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.o := \
   include/linux/compiler-gcc.h \
     $(wildcard include/config/retpoline.h) \
     $(wildcard include/config/arch/use/builtin/bswap.h) \
-  include/linux/kernel.h \
-    $(wildcard include/config/lbdaf.h) \
-    $(wildcard include/config/preempt/voluntary.h) \
-    $(wildcard include/config/debug/atomic/sleep.h) \
-    $(wildcard include/config/mmu.h) \
-    $(wildcard include/config/prove/locking.h) \
-    $(wildcard include/config/arch/has/refcount.h) \
-    $(wildcard include/config/panic/timeout.h) \
+  include/linux/module.h \
+    $(wildcard include/config/modules.h) \
+    $(wildcard include/config/sysfs.h) \
+    $(wildcard include/config/modules/tree/lookup.h) \
+    $(wildcard include/config/livepatch.h) \
+    $(wildcard include/config/unused/symbols.h) \
+    $(wildcard include/config/module/sig.h) \
+    $(wildcard include/config/generic/bug.h) \
+    $(wildcard include/config/kallsyms.h) \
+    $(wildcard include/config/smp.h) \
+    $(wildcard include/config/tracepoints.h) \
+    $(wildcard include/config/bpf/events.h) \
+    $(wildcard include/config/jump/label.h) \
     $(wildcard include/config/tracing.h) \
+    $(wildcard include/config/event/tracing.h) \
     $(wildcard include/config/ftrace/mcount/record.h) \
-  /usr/lib/gcc/x86_64-linux-gnu/7/include/stdarg.h \
-  include/linux/limits.h \
-  include/uapi/linux/limits.h \
+    $(wildcard include/config/module/unload.h) \
+    $(wildcard include/config/constructors.h) \
+    $(wildcard include/config/function/error/injection.h) \
+    $(wildcard include/config/strict/module/rwx.h) \
+  include/linux/list.h \
+    $(wildcard include/config/debug/list.h) \
   include/linux/types.h \
     $(wildcard include/config/have/uid16.h) \
     $(wildcard include/config/uid16.h) \
+    $(wildcard include/config/lbdaf.h) \
     $(wildcard include/config/arch/dma/addr/t/64bit.h) \
     $(wildcard include/config/phys/addr/t/64bit.h) \
     $(wildcard include/config/64bit.h) \
@@ -51,15 +61,28 @@ deps_/ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.o := \
     $(wildcard include/config/x86/32.h) \
   arch/x86/include/uapi/asm/posix_types_64.h \
   include/uapi/asm-generic/posix_types.h \
+  include/linux/poison.h \
+    $(wildcard include/config/illegal/pointer/value.h) \
+    $(wildcard include/config/page/poisoning/zero.h) \
+  include/linux/const.h \
+  include/uapi/linux/const.h \
+  include/linux/kernel.h \
+    $(wildcard include/config/preempt/voluntary.h) \
+    $(wildcard include/config/debug/atomic/sleep.h) \
+    $(wildcard include/config/mmu.h) \
+    $(wildcard include/config/prove/locking.h) \
+    $(wildcard include/config/arch/has/refcount.h) \
+    $(wildcard include/config/lock/down/kernel.h) \
+    $(wildcard include/config/lock/down/mandatory.h) \
+    $(wildcard include/config/panic/timeout.h) \
+  /usr/lib/gcc/x86_64-linux-gnu/7/include/stdarg.h \
   include/linux/linkage.h \
   include/linux/stringify.h \
   include/linux/export.h \
-    $(wildcard include/config/modules.h) \
     $(wildcard include/config/modversions.h) \
     $(wildcard include/config/module/rel/crcs.h) \
     $(wildcard include/config/have/arch/prel32/relocations.h) \
     $(wildcard include/config/trim/unused/ksyms.h) \
-    $(wildcard include/config/unused/symbols.h) \
   include/linux/compiler.h \
     $(wildcard include/config/trace/branch/profiling.h) \
     $(wildcard include/config/profile/all/branches.h) \
@@ -67,7 +90,6 @@ deps_/ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.o := \
     $(wildcard include/config/kasan.h) \
   arch/x86/include/asm/barrier.h \
   arch/x86/include/asm/alternative.h \
-    $(wildcard include/config/smp.h) \
   arch/x86/include/asm/asm.h \
   arch/x86/include/asm/nops.h \
     $(wildcard include/config/mk7.h) \
@@ -124,10 +146,10 @@ deps_/ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.o := \
     $(wildcard include/config/early/printk.h) \
     $(wildcard include/config/printk/nmi.h) \
     $(wildcard include/config/printk.h) \
+    $(wildcard include/config/kmsg/ids.h) \
     $(wildcard include/config/dynamic/debug.h) \
   include/linux/init.h \
     $(wildcard include/config/strict/kernel/rwx.h) \
-    $(wildcard include/config/strict/module/rwx.h) \
   include/linux/kern_levels.h \
   include/linux/cache.h \
     $(wildcard include/config/arch/has/cache/line/size.h) \
@@ -138,33 +160,10 @@ deps_/ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.o := \
     $(wildcard include/config/x86/internode/cache/shift.h) \
     $(wildcard include/config/x86/vsmp.h) \
   include/linux/dynamic_debug.h \
-    $(wildcard include/config/jump/label.h) \
   include/linux/jump_label.h \
     $(wildcard include/config/have/arch/jump/label/relative.h) \
   arch/x86/include/asm/jump_label.h \
   include/linux/build_bug.h \
-  arch/x86/include/asm/div64.h \
-  include/asm-generic/div64.h \
-  include/linux/module.h \
-    $(wildcard include/config/sysfs.h) \
-    $(wildcard include/config/modules/tree/lookup.h) \
-    $(wildcard include/config/livepatch.h) \
-    $(wildcard include/config/module/sig.h) \
-    $(wildcard include/config/generic/bug.h) \
-    $(wildcard include/config/kallsyms.h) \
-    $(wildcard include/config/tracepoints.h) \
-    $(wildcard include/config/bpf/events.h) \
-    $(wildcard include/config/event/tracing.h) \
-    $(wildcard include/config/module/unload.h) \
-    $(wildcard include/config/constructors.h) \
-    $(wildcard include/config/function/error/injection.h) \
-  include/linux/list.h \
-    $(wildcard include/config/debug/list.h) \
-  include/linux/poison.h \
-    $(wildcard include/config/illegal/pointer/value.h) \
-    $(wildcard include/config/page/poisoning/zero.h) \
-  include/linux/const.h \
-  include/uapi/linux/const.h \
   include/linux/stat.h \
   arch/x86/include/uapi/asm/stat.h \
   include/uapi/linux/stat.h \
@@ -205,10 +204,12 @@ deps_/ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.o := \
     $(wildcard include/config/generic/bug/relative/pointers.h) \
   include/linux/restart_block.h \
   include/linux/time64.h \
+    $(wildcard include/config/64bit/time.h) \
   include/linux/math64.h \
     $(wildcard include/config/arch/supports/int128.h) \
+  arch/x86/include/asm/div64.h \
+  include/asm-generic/div64.h \
   include/uapi/linux/time.h \
-  include/uapi/linux/time_types.h \
   arch/x86/include/asm/current.h \
   arch/x86/include/asm/thread_info.h \
     $(wildcard include/config/vm86.h) \
@@ -240,6 +241,7 @@ deps_/ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.o := \
     $(wildcard include/config/x86.h) \
   include/uapi/video/edid.h \
   arch/x86/include/asm/page_64_types.h \
+    $(wildcard include/config/kasan/extra.h) \
     $(wildcard include/config/dynamic/memory/layout.h) \
     $(wildcard include/config/randomize/base.h) \
   arch/x86/include/asm/kaslr.h \
@@ -323,7 +325,6 @@ deps_/ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.o := \
   include/asm-generic/atomic-instrumented.h \
   include/linux/tracepoint-defs.h \
   include/linux/atomic.h \
-  include/linux/atomic-fallback.h \
     $(wildcard include/config/generic/atomic64.h) \
   include/asm-generic/atomic-long.h \
   arch/x86/include/asm/paravirt.h \
@@ -386,16 +387,6 @@ deps_/ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.o := \
     $(wildcard include/config/inline/read/unlock/irqrestore.h) \
     $(wildcard include/config/inline/write/unlock/irqrestore.h) \
   include/linux/time32.h \
-  include/linux/timex.h \
-  include/uapi/linux/timex.h \
-  include/uapi/linux/param.h \
-  arch/x86/include/uapi/asm/param.h \
-  include/asm-generic/param.h \
-    $(wildcard include/config/hz.h) \
-  include/uapi/asm-generic/param.h \
-  arch/x86/include/asm/timex.h \
-  arch/x86/include/asm/tsc.h \
-    $(wildcard include/config/x86/tsc.h) \
   include/linux/uidgid.h \
     $(wildcard include/config/multiuser.h) \
     $(wildcard include/config/user/ns.h) \
@@ -489,6 +480,16 @@ deps_/ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.o := \
     $(wildcard include/config/no/hz/common.h) \
   include/linux/ktime.h \
   include/linux/jiffies.h \
+  include/linux/timex.h \
+  include/uapi/linux/timex.h \
+  include/uapi/linux/param.h \
+  arch/x86/include/uapi/asm/param.h \
+  include/asm-generic/param.h \
+    $(wildcard include/config/hz.h) \
+  include/uapi/asm-generic/param.h \
+  arch/x86/include/asm/timex.h \
+  arch/x86/include/asm/tsc.h \
+    $(wildcard include/config/x86/tsc.h) \
   include/generated/timeconst.h \
   include/linux/timekeeping.h \
   include/linux/timekeeping32.h \
@@ -681,7 +682,6 @@ deps_/ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.o := \
     $(wildcard include/config/posix/timers.h) \
     $(wildcard include/config/sysvipc.h) \
     $(wildcard include/config/detect/hung/task.h) \
-    $(wildcard include/config/audit.h) \
     $(wildcard include/config/auditsyscall.h) \
     $(wildcard include/config/rt/mutexes.h) \
     $(wildcard include/config/ubsan.h) \
@@ -780,10 +780,10 @@ deps_/ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.o := \
     $(wildcard include/config/epoll.h) \
     $(wildcard include/config/file/locking.h) \
     $(wildcard include/config/quota.h) \
+    $(wildcard include/config/blk/dev/loop.h) \
     $(wildcard include/config/fs/dax.h) \
     $(wildcard include/config/mandatory/file/locking.h) \
     $(wildcard include/config/migration.h) \
-    $(wildcard include/config/io/uring.h) \
   include/linux/wait_bit.h \
   include/linux/kdev_t.h \
   include/uapi/linux/kdev_t.h \
@@ -805,7 +805,6 @@ deps_/ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.o := \
   include/uapi/linux/capability.h \
   include/linux/semaphore.h \
   include/linux/fcntl.h \
-    $(wildcard include/config/arch/32bit/off/t.h) \
   include/uapi/linux/fcntl.h \
   arch/x86/include/uapi/asm/fcntl.h \
   include/uapi/asm-generic/fcntl.h \
@@ -821,8 +820,8 @@ deps_/ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.o := \
   include/linux/ioprio.h \
   include/linux/sched/rt.h \
   include/linux/iocontext.h \
-  include/linux/fs_types.h \
   include/uapi/linux/fs.h \
+  include/uapi/linux/limits.h \
   include/linux/quota.h \
     $(wildcard include/config/quota/netlink/interface.h) \
   include/linux/percpu_counter.h \
@@ -908,6 +907,6 @@ deps_/ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.o := \
   include/linux/kasan.h \
     $(wildcard include/config/kasan/generic.h) \
 
-/ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.o: $(deps_/ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.o)
+/home/jesn/Desktop/linux_kernel/jesn_modules/9_mutex/jesn_m9.o: $(deps_/home/jesn/Desktop/linux_kernel/jesn_modules/9_mutex/jesn_m9.o)
 
-$(deps_/ker/linux_kernel/jesn_modules/9_mutex/jesn_m9.o):
+$(deps_/home/jesn/Desktop/linux_kernel/jesn_modules/9_mutex/jesn_m9.o):
