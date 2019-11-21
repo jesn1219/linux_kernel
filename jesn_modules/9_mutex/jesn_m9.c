@@ -7,11 +7,19 @@
 #include <linux/time.h>
 #include <linux/slab.h>
 #include <linux/mutex.h>
+#include <linux/spinlock.h>
+#include <linux/rwsem.h>
 
 
 #define BILLION 1000000000
 #define GLOBAL_INDEX_MAX 100000
 #define NUMJOBS 4
+
+
+spinlock_t global_spinlock;
+DEFINE_MUTEX(global_mutex);
+struct rw_semaphore global_rwsem;
+
 
 
 unsigned long long cal_clock(struct timespec* localtime) {
@@ -29,7 +37,6 @@ unsigned long long cal_clock(struct timespec* localtime) {
 }
 
 
-DEFINE_MUTEX(global_mutex);
 
 
 struct sample_node {
@@ -44,17 +51,29 @@ struct list_head sample_list[3];
 
 
 
-int GLOBAL_PROTECT_NUM;
+int GLOBAL_PROTECT_METHOD;
 
 void protect_on(void) {
-	if (GLOBAL_PROTECT_NUM == 1) {
+	if (GLOBAL_PROTECT_METHOD == 1) {
 		mutex_lock(&global_mutex);
-	} 
+	} else if (GLOBAL_PROTECT_METHOD == 2) {
+		spin_lock(&global_spinlock);
+	} else if (GLOBAL_PROTECT_METHOD == 3) {
+		down_write(&global_rwsem);
+	} else {
+	       printk("ERROR\n");
+	}	       
 }
 
 void protect_off(void) {
-	if (GLOBAL_PROTECT_NUM == 1) {
+	if (GLOBAL_PROTECT_METHOD == 1) {
 		mutex_unlock(&global_mutex);
+	} else if (GLOBAL_PROTECT_METHOD == 2) {
+		spin_unlock(&global_spinlock);
+	} else if (GLOBAL_PROTECT_METHOD == 3) {
+		up_write(&global_rwsem);
+	} else {
+		printk("ERROR\n");
 	}
 }
 
@@ -62,7 +81,6 @@ void protect_off(void) {
 
 int insert_thread(void* _arg) {
 	int* arg = (int*)_arg;
-	printk("mutex_insert_thread is created\n");
 
 	while (true) {
 		protect_on();
@@ -78,7 +96,6 @@ int insert_thread(void* _arg) {
 		protect_off();
 	}
 
-	printk("mutex_insert_thread is finished\n");
 	return 0;
 }
 
@@ -129,7 +146,6 @@ void create_and_test_thread(void) {
 	unsigned long long delete_time;
 	struct timespec tmp_time[2];
 	getrawmonotonic(&tmp_time[0]);
-	printk("checkpoint a\n");
 	global_index = 0;
 	for ( i = 0; i < NUMJOBS; i++) {
 		kthread_run(&insert_thread,&i,"insert_thread");
@@ -138,7 +154,6 @@ void create_and_test_thread(void) {
 	insert_time = cal_clock(tmp_time);
 
 	getrawmonotonic(&tmp_time[0]);
-	printk("checkpoint b\n");
 	global_index = 0;
 	for ( i = 0; i < NUMJOBS; i++) {
 		kthread_run(&search_thread,&i,"serach_thread");
@@ -147,7 +162,6 @@ void create_and_test_thread(void) {
 	search_time = cal_clock(tmp_time);
 	
 	getrawmonotonic(&tmp_time[0]);
-	printk("check[oint c\n");
 	global_index = 0;
 	for ( i = 0; i < NUMJOBS; i++) {
 		kthread_run(&delete_thread,&i,"delete_thread");
@@ -156,27 +170,31 @@ void create_and_test_thread(void) {
 	delete_time = cal_clock(tmp_time);
 	
 	
-	printk("%s linked list insert_time : %llu ns\n", GLOBAL_PROTECT_NUM == 1 ? "mutex" : GLOBAL_PROTECT_NUM == 2 ? "spin_lock" : "RW semaphore", insert_time); 
+	printk("%s linked list insert_time : %llu ns\n", GLOBAL_PROTECT_METHOD == 1 ? "mutex" : GLOBAL_PROTECT_METHOD == 2 ? "spin_lock" : "RW semaphore", insert_time); 
 
-	printk("%s linked list serach_time : %llu ns\n", GLOBAL_PROTECT_NUM == 1 ? "mutex" : GLOBAL_PROTECT_NUM == 2 ? "spin_lock" : "RW semaphore", insert_time); 
+	printk("%s linked list serach_time : %llu ns\n", GLOBAL_PROTECT_METHOD == 1 ? "mutex" : GLOBAL_PROTECT_METHOD == 2 ? "spin_lock" : "RW semaphore", search_time); 
 
-	printk("%s linked list delete_time : %llu ns\n", GLOBAL_PROTECT_NUM == 1 ? "mutex" : GLOBAL_PROTECT_NUM == 2 ? "spin_lock" : "RW semaphore", insert_time); 
+	printk("%s linked list delete_time : %llu ns\n", GLOBAL_PROTECT_METHOD == 1 ? "mutex" : GLOBAL_PROTECT_METHOD == 2 ? "spin_lock" : "RW semaphore", delete_time); 
 }
 
 
 
 void test_program(void) {
+	spin_lock_init(&global_spinlock);
+	init_rwsem(&global_rwsem);
 
-	printk("check point 2\n");
+
 	INIT_LIST_HEAD(&sample_list[0]);
 	INIT_LIST_HEAD(&sample_list[1]);
 	INIT_LIST_HEAD(&sample_list[2]);
-	global_index = 0;
-	printk("check point 3\n");
-	GLOBAL_PROTECT_NUM = 1;
+	GLOBAL_PROTECT_METHOD = 1;
 	create_and_test_thread();
-	printk("check point 4\n");
 
+	GLOBAL_PROTECT_METHOD = 2;
+	create_and_test_thread();
+
+	GLOBAL_PROTECT_METHOD = 3;
+	create_and_test_thread();
 }
 
 
